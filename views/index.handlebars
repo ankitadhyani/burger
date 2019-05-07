@@ -1,0 +1,114 @@
+
+<div class="container border border-success">
+
+  {{!-- heading + form data --}}
+  <header class="row mt-3">
+
+    {{!-- Header --}}
+    <div class="col-4 pl-5">
+
+      <div>
+
+        {{!-- Adding burger GIF --}}
+        <div class="tenor-gif-embed" data-postid="8669971" data-share-method="host" data-width="300px"
+          data-height="300px" data-aspect-ratio="1.0">
+          <a href="https://tenor.com/view/burger-gif-8669971">Burger Food GIF</a>
+          from <a href="https://tenor.com/search/burger-gifs">Burger GIFs</a>
+        </div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+      </div>
+    </div>
+
+
+    {{!-- Burger input form --}}
+    <div class="col-8">
+
+      <div class="jumbotron jumbotron-fluid bg-dark text-light p-5" style="border-radius: 10px 100px / 120px;">
+        <h1 class="text-center">Burger App!</h1class>
+
+          <div class="mt-5">
+            <form id="burger-form">
+              <input class="form-control text-center" id="name-input" placeholder="Burger's Name" />
+              <button class="btn btn-success btn-block mt-3" type="submit">
+                Add A Burger!
+              </button>
+            </form>
+          </div>
+
+      </div>
+    </div>
+
+  </header>
+
+
+  {{!-- Burgers Available & Devoured Burgers  --}}
+  <footer class="row mb-5">
+
+    {{!-- Display list of burgers that are ready to be consumed --}}
+    <div class="col ml-3 bg-success" style=" width: 45%; border-radius: 10% / 50%;">
+      <h2 class="mt-3 p-3 text-center">Burgers In-Stock</h2>
+      <ul class="list-group pb-3 mb-5">
+
+        {{!-- use handlebars to print burgers that are ready to be consumed --}}
+        {{#each burgerData}}
+
+        {{#unless devoured}}
+        <li class="list-group-item d-flex">
+          {{burger_name}}
+          <span class="ml-auto">
+            <button data-id="{{id}}" data-devoured="true" class="btn btn-sm bg-warning text-dark update-burger">
+              Make Devoured
+            </button>
+
+            {{!-- delete burger --}}
+            <button data-id="{{id}}" class="btn btn-sm btn-danger delete-burger">
+              Delete burger
+            </button>
+          </span>
+        </li>
+        {{/unless}}
+
+        {{/each}}
+
+      </ul>
+    </div>
+
+
+    {{!-- Display list of burgers that are already devoured --}}
+    <div class="col ml-3 bg-warning" style="width: 45%; border-radius: 10% / 50%;">
+      <h2 class="mt-3 p-3 text-center">Burgers That Are Devoured</h2>
+      <ul class="list-group pb-3 mb-5">
+
+        {{!-- use handlebars to print burgers that are devoured --}}
+        {{#each burgerData}}
+
+        {{#if devoured}}
+        <li class="list-group-item d-flex">
+          {{burger_name}}
+          <span class="ml-auto">
+            <button data-id="{{id}}" data-devoured="false" class="btn btn-sm btn-success update-burger">
+              Make Burger ready!
+            </button>
+
+            {{!-- delete burger --}}
+            <button data-id="{{id}}" class="btn btn-sm btn-danger delete-burger">
+              Delete Burger
+            </button>
+          </span>
+        </li>
+        {{/if}}
+
+        {{/each}}
+
+      </ul>
+    </div>
+
+
+  </footer>
+
+</div>
+
+
+
+<script src="./assets/js/burger.js"></script>
