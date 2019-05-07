@@ -15,4 +15,4 @@ This is a burger store application built with Node, Express, Express-Handlebars 
 
 
 ## Screenshot(s)
-![alt text](https://github.com/ankitadhyani/NoteTaker/blob/master/snapshots/NoteTaker_HomePage.png "Burger App: Home Page")
+![alt text](https://github.com/ankitadhyani/burger/blob/master/snapshots/BurgerApp_HomePage.png "Burger App: Home Page")
